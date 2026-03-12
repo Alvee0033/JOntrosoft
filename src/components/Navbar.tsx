@@ -48,7 +48,7 @@ export default function Navbar() {
                     href="/checkout"
                     className="hidden md:inline-block bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-slate-800 transition-all active:scale-95"
                 >
-                    Launch App
+                    View Our Work
                 </Link>
 
                 {/* Mobile hamburger */}
@@ -72,8 +72,8 @@ export default function Navbar() {
                             href={item.href}
                             onClick={() => setMobileOpen(false)}
                             className={`block text-base font-medium ${pathname === item.href
-                                    ? "text-orange-600 font-semibold"
-                                    : "text-slate-700 hover:text-orange-600"
+                                ? "text-orange-600 font-semibold"
+                                : "text-slate-700 hover:text-orange-600"
                                 }`}
                         >
                             {item.label}
@@ -84,7 +84,7 @@ export default function Navbar() {
                         onClick={() => setMobileOpen(false)}
                         className="block w-full text-center bg-slate-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-slate-800 transition-all"
                     >
-                        Launch App
+                        View Our Work
                     </Link>
                 </div>
             )}
