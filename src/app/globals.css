@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #1e293b;
 }
 
 @theme inline {
@@ -10,17 +10,94 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* JANTRA custom colors */
+  --color-jantra-orange: #FB923C;
+  --color-jantra-orange-dark: #F97316;
+  --color-jantra-orange-deep: #EA580C;
+  --color-jantra-slate: #1E293B;
+
+  /* Custom animations */
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-float-medium: float 6s ease-in-out infinite;
+  --animate-float-fast: float 4s ease-in-out infinite;
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-pulse-soft: pulseSoft 4s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 8s ease-in-out infinite 1s;
+  --animate-pulse-slow-bg: pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Orb float keyframes (with translate + scale) */
+@keyframes orbFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, -30px) scale(1.1); }
+  100% { transform: translate(-20px, 40px) scale(0.9); }
+}
+
+/* Pulse soft keyframes */
+@keyframes pulseSoft {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+/* Glass panel effect */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(251, 146, 60, 0.15);
+}
+
+/* Shimmer orange button */
+.shimmer-orange {
+  background: linear-gradient(135deg, #FB923C 0%, #F97316 100%);
+  transition: all 0.3s ease;
+}
+.shimmer-orange:hover {
+  box-shadow: 0 0 25px rgba(251, 146, 60, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Spatial hover effect */
+.spatial-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.spatial-hover:hover {
+  transform: scale(1.02) translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 40px 0 rgba(251, 146, 60, 0.25);
+}
+
+/* Globe placeholder shadow */
+.globe-shadow {
+  filter: drop-shadow(0 0 50px rgba(251, 146, 60, 0.3));
+}
+
+/* Background orb base */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(150px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Orb animation */
+.orb-animate {
+  animation: orbFloat 20s infinite alternate ease-in-out;
 }
