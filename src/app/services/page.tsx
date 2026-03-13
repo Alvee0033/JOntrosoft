@@ -1,4 +1,5 @@
-import LottiePlayer from "@/components/LottiePlayer";
+import ServiceShowcase from "@/components/marketing/ServiceShowcase";
+import { serviceOfferings } from "@/content/site";
 
 export default function ServicesPage() {
     return (
@@ -13,106 +14,9 @@ export default function ServicesPage() {
                 </p>
             </header>
 
-            {/* Service Section 1 */}
-            <section className="relative w-full py-16 md:py-32 min-h-0 md:min-h-[800px]" id="service-1">
-                <div className="container mx-auto px-6 relative">
-                    {/* Mobile: stacked layout, Desktop: absolute positioned overlap */}
-                    <div className="flex flex-col lg:block gap-8">
-                        {/* Lottie Animation — Cloud */}
-                        <div className="relative lg:absolute lg:left-[10%] w-full lg:w-[45%] h-[250px] sm:h-[350px] md:h-[500px] z-10 rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-orange-100 to-orange-200 overflow-hidden flex items-center justify-center shadow-2xl">
-                            <LottiePlayer src="/lottie/cloud.json" className="w-full h-full" />
-                        </div>
-                        {/* Glass Content Card */}
-                        <div className="relative lg:absolute lg:right-[15%] lg:top-[100px] w-full lg:w-[40%] z-20 glass-panel p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                            <span className="text-orange-500 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">
-                                Core Service 01
-                            </span>
-                            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Custom Software Development</h2>
-                            <p className="text-slate-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
-                                End-to-end bespoke software solutions built for scale and performance.
-                            </p>
-                            <button className="bg-slate-900 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full hover:bg-orange-600 transition-all font-medium text-sm md:text-base">
-                                Start Your Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Service Section 2 */}
-            <section className="relative w-full py-16 md:py-32 min-h-0 md:min-h-[800px]" id="service-2">
-                <div className="container mx-auto px-6 relative">
-                    <div className="flex flex-col-reverse lg:block gap-8">
-                        {/* Lottie Animation — 3D Web */}
-                        <div className="relative lg:absolute lg:right-[10%] w-full lg:w-[45%] h-[250px] sm:h-[350px] md:h-[500px] z-10 rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-tr from-slate-200 to-slate-300 overflow-hidden flex items-center justify-center shadow-2xl">
-                            <LottiePlayer src="/lottie/3dweb.json" className="w-full h-full" />
-                        </div>
-                        {/* Glass Content Card (Left on desktop) */}
-                        <div className="relative lg:absolute lg:left-[15%] lg:top-[100px] w-full lg:w-[40%] z-20 glass-panel p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                            <span className="text-orange-500 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">
-                                Core Service 02
-                            </span>
-                            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">AI Agent Development</h2>
-                            <p className="text-slate-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
-                                Deploy autonomous AI agents that think, act, and execute complex business tasks 24/7.
-                            </p>
-                            <button className="bg-slate-900 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full hover:bg-orange-600 transition-all font-medium text-sm md:text-base">
-                                Start Your Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Service Section 3 */}
-            <section className="relative w-full py-16 md:py-32 min-h-0 md:min-h-[800px]" id="service-3">
-                <div className="container mx-auto px-6 relative">
-                    <div className="flex flex-col lg:block gap-8">
-                        {/* Lottie Animation — Chatbot */}
-                        <div className="relative lg:absolute lg:left-[10%] w-full lg:w-[45%] h-[250px] sm:h-[350px] md:h-[500px] z-10 rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-orange-100 to-orange-200 overflow-hidden flex items-center justify-center shadow-2xl">
-                            <LottiePlayer src="/lottie/live_chatbot.json" className="w-full h-full" />
-                        </div>
-                        {/* Glass Content Card */}
-                        <div className="relative lg:absolute lg:right-[15%] lg:top-[100px] w-full lg:w-[40%] z-20 glass-panel p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                            <span className="text-orange-500 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">
-                                Core Service 03
-                            </span>
-                            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Agentic Workflow Automation</h2>
-                            <p className="text-slate-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
-                                Eliminate manual operational bottlenecks with intelligent, end-to-end automated workflows.
-                            </p>
-                            <button className="bg-slate-900 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full hover:bg-orange-600 transition-all font-medium text-sm md:text-base">
-                                Start Your Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Service Section 4 */}
-            <section className="relative w-full py-16 md:py-32 min-h-0 md:min-h-[800px]" id="service-4">
-                <div className="container mx-auto px-6 relative">
-                    <div className="flex flex-col-reverse lg:block gap-8">
-                        {/* Lottie Animation — SaaS */}
-                        <div className="relative lg:absolute lg:right-[10%] w-full lg:w-[45%] h-[250px] sm:h-[350px] md:h-[500px] z-10 rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-tr from-slate-200 to-slate-300 overflow-hidden flex items-center justify-center shadow-2xl">
-                            <LottiePlayer src="/lottie/saas.json" className="w-full h-full" />
-                        </div>
-                        {/* Glass Content Card (Left on desktop) */}
-                        <div className="relative lg:absolute lg:left-[15%] lg:top-[100px] w-full lg:w-[40%] z-20 glass-panel p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                            <span className="text-orange-500 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">
-                                Core Service 04
-                            </span>
-                            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">SaaS Product Development</h2>
-                            <p className="text-slate-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
-                                From architecture to deployment, we build scalable Software-as-a-Service platforms.
-                            </p>
-                            <button className="bg-slate-900 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full hover:bg-orange-600 transition-all font-medium text-sm md:text-base">
-                                Start Your Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {serviceOfferings.map((service) => (
+                <ServiceShowcase key={service.id} service={service} />
+            ))}
 
             {/* Footer */}
             <footer className="relative z-10 py-12 md:py-24 px-4 md:px-6 text-center">

@@ -3,13 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
-const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
-    { label: "Pricing", href: "/checkout" },
-    { label: "Contact", href: "/contact" },
-];
+import { navItems } from "@/content/site";
 
 export default function Navbar() {
     const pathname = usePathname();

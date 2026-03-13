@@ -3,11 +3,18 @@
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 
+const animationCache = new Map<string, unknown>();
+
 interface LottiePlayerProps {
     src: string;
     className?: string;
     loop?: boolean;
     autoplay?: boolean;
+}
+
+interface AnimationState {
+    src: string;
+    data: unknown;
 }
 
 export default function LottiePlayer({
@@ -16,13 +23,32 @@ export default function LottiePlayer({
     loop = true,
     autoplay = true,
 }: LottiePlayerProps) {
-    const [animationData, setAnimationData] = useState(null);
+    const [animationState, setAnimationState] = useState<AnimationState | null>(null);
+    const cachedAnimationData = animationCache.get(src) ?? null;
+    const animationData = cachedAnimationData ?? (animationState?.src === src ? animationState.data : null);
 
     useEffect(() => {
-        fetch(src)
+        if (animationCache.has(src)) {
+            return;
+        }
+
+        const controller = new AbortController();
+
+        fetch(src, { signal: controller.signal })
             .then((res) => res.json())
-            .then((data) => setAnimationData(data))
-            .catch((err) => console.error("Failed to load Lottie animation:", err));
+            .then((data) => {
+                animationCache.set(src, data);
+                setAnimationState({ src, data });
+            })
+            .catch((err: unknown) => {
+                if (err instanceof DOMException && err.name === "AbortError") {
+                    return;
+                }
+
+                console.error("Failed to load Lottie animation:", err);
+            });
+
+        return () => controller.abort();
     }, [src]);
 
     if (!animationData) {
