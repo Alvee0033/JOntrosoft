@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import BackgroundOrbs from "@/components/BackgroundOrbs";
 
 export const metadata: Metadata = {
@@ -18,7 +19,10 @@ export default function RootLayout({
       <body className="bg-slate-50 antialiased text-slate-900 selection:bg-orange-200">
         <BackgroundOrbs />
         <Navbar />
-        {children}
+        <div className="flex-1 flex flex-col min-h-screen">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

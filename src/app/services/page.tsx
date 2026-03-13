@@ -1,4 +1,112 @@
 import LottiePlayer from "@/components/LottiePlayer";
+import Link from "next/link";
+import {
+    Code, Smartphone, Bot, MessageSquare, Workflow,
+    Cloud, Network, BarChart, Layout, Server, CheckCircle
+} from "lucide-react";
+
+const services = [
+    {
+        title: "Custom Software Development",
+        slug: "custom-software-development",
+        description: "End-to-end bespoke software solutions built for scale and performance.",
+        icon: Code,
+        lottieSrc: "/lottie/cloud.json",
+        bgGradient: "bg-gradient-to-br from-orange-100 to-orange-200",
+        features: ["Full-stack development", "Scalable architecture design", "Comprehensive QA & testing"],
+        industries: ["Finance", "Healthcare", "E-commerce"]
+    },
+    {
+        title: "Mobile App Development",
+        slug: "mobile-app-development",
+        description: "High-performance native and cross-platform mobile applications that users love.",
+        icon: Smartphone,
+        lottieSrc: "/lottie/app-development.json",
+        bgGradient: "bg-gradient-to-tr from-slate-200 to-slate-300",
+        features: ["iOS & Android platforms", "React Native & Flutter", "Intuitive UI/UX implementation"],
+        industries: ["Retail", "Social Apps", "Tech"]
+    },
+    {
+        title: "AI Agent Development",
+        slug: "ai-agent-development",
+        description: "Deploy autonomous AI agents that think, act, and execute complex business tasks 24/7.",
+        icon: Bot,
+        lottieSrc: "/lottie/assistant-bot.json",
+        bgGradient: "bg-gradient-to-br from-orange-100 to-orange-200",
+        features: ["Autonomous execution", "LLM integration", "Custom decision capabilities"],
+        industries: ["Finance", "Operations", "Logistics"]
+    },
+    {
+        title: "AI Chatbots & Virtual Assistants",
+        slug: "ai-chatbots-virtual-assistants",
+        description: "Intelligent conversational interfaces that support customers and drive sales.",
+        icon: MessageSquare,
+        lottieSrc: "/lottie/live-chatbot.json",
+        bgGradient: "bg-gradient-to-tr from-slate-200 to-slate-300",
+        features: ["Advanced NLP processing", "24/7 automated support", "Multi-channel integration"],
+        industries: ["Customer Service", "Retail", "Healthcare"]
+    },
+    {
+        title: "Agentic Workflow Automation",
+        slug: "agentic-workflow-automation",
+        description: "Eliminate manual operational bottlenecks with intelligent, end-to-end automated workflows.",
+        icon: Workflow,
+        lottieSrc: "/lottie/automatic.json",
+        bgGradient: "bg-gradient-to-br from-orange-100 to-orange-200",
+        features: ["Process mapping", "AI orchestration", "Third-party systems integration"],
+        industries: ["Enterprise", "Logistics", "Manufacturing"]
+    },
+    {
+        title: "SaaS Product Development",
+        slug: "saas-product-development",
+        description: "From architecture to deployment, we build scalable Software-as-a-Service platforms.",
+        icon: Cloud,
+        lottieSrc: "/lottie/saas.json",
+        bgGradient: "bg-gradient-to-tr from-slate-200 to-slate-300",
+        features: ["Multi-tenant architecture", "Subscription management", "Scalable database design"],
+        industries: ["B2B Tech", "Education", "Marketing"]
+    },
+    {
+        title: "API & Microservices Development",
+        slug: "api-microservices-development",
+        description: "Robust backend systems and APIs to connect and power your digital ecosystem.",
+        icon: Network,
+        lottieSrc: "/lottie/3d-web.json",
+        bgGradient: "bg-gradient-to-br from-orange-100 to-orange-200",
+        features: ["REST & GraphQL APIs", "Microservices architecture", "Advanced API security"],
+        industries: ["Fintech", "Enterprise", "Media"]
+    },
+    {
+        title: "Business Intelligence Dashboards",
+        slug: "business-intelligence-dashboards",
+        description: "Actionable insights through beautiful, real-time data visualization platforms.",
+        icon: BarChart,
+        lottieSrc: "/lottie/bpo-3d.json",
+        bgGradient: "bg-gradient-to-tr from-slate-200 to-slate-300",
+        features: ["Real-time analytics", "Custom reporting metrics", "Interactive visualizations"],
+        industries: ["Finance", "Marketing", "Sales"]
+    },
+    {
+        title: "UI/UX Design & Product Design",
+        slug: "ui-ux-design",
+        description: "User-centric design that creates intuitive and engaging digital experiences.",
+        icon: Layout,
+        lottieSrc: "/lottie/uxui-d.json",
+        bgGradient: "bg-gradient-to-br from-orange-100 to-orange-200",
+        features: ["Wireframing & journey mapping", "High-fidelity prototyping", "Usability testing"],
+        industries: ["Consumer Tech", "E-commerce", "SaaS"]
+    },
+    {
+        title: "Cloud Migration & Management",
+        slug: "cloud-migration-management",
+        description: "Secure, efficient transition to cloud infrastructure with ongoing optimization.",
+        icon: Server,
+        lottieSrc: "/lottie/cloud-animation.json",
+        bgGradient: "bg-gradient-to-tr from-slate-200 to-slate-300",
+        features: ["AWS/Azure/GCP expertise", "Comprehensive security audits", "Infrastructure cost optimization"],
+        industries: ["IT", "Healthcare", "Government"]
+    }
+];
 
 export default function ServicesPage() {
     return (
@@ -13,129 +121,79 @@ export default function ServicesPage() {
                 </p>
             </header>
 
-            {/* Service Section 1 */}
-            <section className="relative w-full py-16 md:py-32 min-h-0 md:min-h-[800px]" id="service-1">
-                <div className="container mx-auto px-6 relative">
-                    {/* Mobile: stacked layout, Desktop: absolute positioned overlap */}
-                    <div className="flex flex-col lg:block gap-8">
-                        {/* Lottie Animation — Cloud */}
-                        <div className="relative lg:absolute lg:left-[10%] w-full lg:w-[45%] h-[250px] sm:h-[350px] md:h-[500px] z-10 rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-orange-100 to-orange-200 overflow-hidden flex items-center justify-center shadow-2xl">
-                            <LottiePlayer src="/lottie/cloud.json" className="w-full h-full" />
-                        </div>
-                        {/* Glass Content Card */}
-                        <div className="relative lg:absolute lg:right-[15%] lg:top-[100px] w-full lg:w-[40%] z-20 glass-panel p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                            <span className="text-orange-500 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">
-                                Core Service 01
-                            </span>
-                            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Custom Software Development</h2>
-                            <p className="text-slate-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
-                                End-to-end bespoke software solutions built for scale and performance.
-                            </p>
-                            <button className="bg-slate-900 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full hover:bg-orange-600 transition-all font-medium text-sm md:text-base">
-                                Start Your Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* Services List */}
+            {services.map((service, index) => {
+                const isEven = index % 2 === 0;
 
-            {/* Service Section 2 */}
-            <section className="relative w-full py-16 md:py-32 min-h-0 md:min-h-[800px]" id="service-2">
-                <div className="container mx-auto px-6 relative">
-                    <div className="flex flex-col-reverse lg:block gap-8">
-                        {/* Lottie Animation — 3D Web */}
-                        <div className="relative lg:absolute lg:right-[10%] w-full lg:w-[45%] h-[250px] sm:h-[350px] md:h-[500px] z-10 rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-tr from-slate-200 to-slate-300 overflow-hidden flex items-center justify-center shadow-2xl">
-                            <LottiePlayer src="/lottie/3dweb.json" className="w-full h-full" />
-                        </div>
-                        {/* Glass Content Card (Left on desktop) */}
-                        <div className="relative lg:absolute lg:left-[15%] lg:top-[100px] w-full lg:w-[40%] z-20 glass-panel p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                            <span className="text-orange-500 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">
-                                Core Service 02
-                            </span>
-                            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">AI Agent Development</h2>
-                            <p className="text-slate-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
-                                Deploy autonomous AI agents that think, act, and execute complex business tasks 24/7.
-                            </p>
-                            <button className="bg-slate-900 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full hover:bg-orange-600 transition-all font-medium text-sm md:text-base">
-                                Start Your Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                return (
+                    <section key={service.slug} className="relative w-full py-16 md:py-32 min-h-0 md:min-h-[800px]" id={`service-${index + 1}`}>
+                        <div className="container mx-auto px-6 relative">
+                            {/* Mobile: stacked layout, Desktop: absolute positioned overlap */}
+                            <div className={`flex ${isEven ? 'flex-col lg:block' : 'flex-col-reverse lg:block'} gap-8`}>
+                                {/* Lottie Animation */}
+                                <div className={`relative lg:absolute ${isEven ? 'lg:left-[5%]' : 'lg:right-[5%]'} w-full lg:w-[50%] h-[300px] sm:h-[400px] md:h-[550px] z-10 rounded-[2rem] md:rounded-[2.5rem] ${service.bgGradient} overflow-hidden flex items-center justify-center shadow-2xl`}>
+                                    <LottiePlayer src={service.lottieSrc} className="w-full h-[80%] max-w-[80%]" />
+                                </div>
 
-            {/* Service Section 3 */}
-            <section className="relative w-full py-16 md:py-32 min-h-0 md:min-h-[800px]" id="service-3">
-                <div className="container mx-auto px-6 relative">
-                    <div className="flex flex-col lg:block gap-8">
-                        {/* Lottie Animation — Chatbot */}
-                        <div className="relative lg:absolute lg:left-[10%] w-full lg:w-[45%] h-[250px] sm:h-[350px] md:h-[500px] z-10 rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-br from-orange-100 to-orange-200 overflow-hidden flex items-center justify-center shadow-2xl">
-                            <LottiePlayer src="/lottie/live_chatbot.json" className="w-full h-full" />
-                        </div>
-                        {/* Glass Content Card */}
-                        <div className="relative lg:absolute lg:right-[15%] lg:top-[100px] w-full lg:w-[40%] z-20 glass-panel p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                            <span className="text-orange-500 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">
-                                Core Service 03
-                            </span>
-                            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Agentic Workflow Automation</h2>
-                            <p className="text-slate-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
-                                Eliminate manual operational bottlenecks with intelligent, end-to-end automated workflows.
-                            </p>
-                            <button className="bg-slate-900 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full hover:bg-orange-600 transition-all font-medium text-sm md:text-base">
-                                Start Your Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                                {/* Glass Content Card */}
+                                <div className={`relative lg:absolute ${isEven ? 'lg:right-[10%] lg:top-[50px] lg:bottom-auto' : 'lg:left-[10%] lg:top-[50px] lg:bottom-auto'} w-full lg:w-[45%] z-20 glass-panel bg-white/60 md:bg-white/80 backdrop-blur-xl border border-white/50 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)]`}>
+                                    <div className="flex items-center gap-3 mb-5 md:mb-6">
+                                        <div className="p-3 bg-white shadow-md text-orange-600 rounded-xl">
+                                            <service.icon className="w-6 h-6 md:w-8 md:h-8" />
+                                        </div>
+                                        <span className="text-orange-600 font-bold tracking-widest text-[10px] md:text-xs uppercase bg-orange-100/50 px-3 py-1.5 rounded-full inline-block">
+                                            Core Service {String(index + 1).padStart(2, '0')}
+                                        </span>
+                                    </div>
 
-            {/* Service Section 4 */}
-            <section className="relative w-full py-16 md:py-32 min-h-0 md:min-h-[800px]" id="service-4">
-                <div className="container mx-auto px-6 relative">
-                    <div className="flex flex-col-reverse lg:block gap-8">
-                        {/* Lottie Animation — SaaS */}
-                        <div className="relative lg:absolute lg:right-[10%] w-full lg:w-[45%] h-[250px] sm:h-[350px] md:h-[500px] z-10 rounded-[2rem] md:rounded-[2.5rem] bg-gradient-to-tr from-slate-200 to-slate-300 overflow-hidden flex items-center justify-center shadow-2xl">
-                            <LottiePlayer src="/lottie/saas.json" className="w-full h-full" />
-                        </div>
-                        {/* Glass Content Card (Left on desktop) */}
-                        <div className="relative lg:absolute lg:left-[15%] lg:top-[100px] w-full lg:w-[40%] z-20 glass-panel p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                            <span className="text-orange-500 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 md:mb-4 block">
-                                Core Service 04
-                            </span>
-                            <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">SaaS Product Development</h2>
-                            <p className="text-slate-700 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
-                                From architecture to deployment, we build scalable Software-as-a-Service platforms.
-                            </p>
-                            <button className="bg-slate-900 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full hover:bg-orange-600 transition-all font-medium text-sm md:text-base">
-                                Start Your Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                                    <h2 className="text-2xl md:text-4xl font-bold mb-4 text-slate-900 leading-tight">
+                                        {service.title}
+                                    </h2>
 
-            {/* Footer */}
-            <footer className="relative z-10 py-12 md:py-24 px-4 md:px-6 text-center">
-                <div className="max-w-4xl mx-auto glass-panel p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem]">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Ready to step into the future?</h3>
-                    <p className="text-slate-600 mb-6 md:mb-8 text-sm md:text-base">
-                        Join JANTRA in redefining how we interact with information and each other.
-                    </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
-                        <input
-                            className="px-5 md:px-6 py-3 rounded-full border-white/50 bg-white/20 backdrop-blur-md focus:ring-orange-500 focus:border-orange-500 w-full sm:min-w-[300px]"
-                            placeholder="Enter your email"
-                            type="email"
-                        />
-                        <button className="bg-orange-500 text-white px-8 md:px-10 py-3 rounded-full hover:bg-orange-600 transition-all font-bold">
-                            Get Access
-                        </button>
-                    </div>
-                </div>
-                <div className="mt-8 md:mt-12 text-slate-400 text-xs md:text-sm">
-                    © 2024 JANTRA SERVICES. ALL RIGHTS RESERVED.
-                </div>
-            </footer>
+                                    <p className="text-slate-600 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
+                                        {service.description}
+                                    </p>
+
+                                    {/* Feature list */}
+                                    <div className="mb-6 md:mb-8 bg-slate-50/50 p-4 rounded-2xl border border-slate-100">
+                                        <h4 className="text-sm font-semibold text-slate-800 mb-3">Key Capabilities</h4>
+                                        <ul className="space-y-2.5">
+                                            {service.features.map((feature, fIdx) => (
+                                                <li key={fIdx} className="flex items-start gap-3 text-sm text-slate-600">
+                                                    <CheckCircle className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
+                                                    <span className="font-medium text-slate-700">{feature}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* Industry tags */}
+                                    <div className="mb-8 md:mb-10">
+                                        <h4 className="text-sm font-semibold text-slate-800 mb-3">Industries</h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {service.industries.map((industry, iIdx) => (
+                                                <span key={iIdx} className="px-3 md:px-4 py-1.5 bg-white border border-slate-200 text-slate-600 text-xs rounded-full font-medium shadow-sm transition-all hover:border-orange-200 hover:text-orange-600">
+                                                    {industry}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="pt-2 border-t border-slate-200 border-dashed">
+                                        <Link href={`/services/${service.slug}`} className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full hover:shadow-[0_10px_20px_-5px_rgba(249,115,22,0.4)] transition-all font-bold text-sm md:text-base active:scale-95 group">
+                                            <span>Explore Case Studies</span>
+                                            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                            </svg>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                );
+            })}
+
         </main>
     );
 }

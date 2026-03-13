@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import LottiePlayer from "@/components/LottiePlayer";
+import { Linkedin, Twitter, Github, Dribbble } from "lucide-react";
 
 export default function ContactPage() {
     useEffect(() => {
@@ -220,6 +221,27 @@ export default function ContactPage() {
                             <span className="text-[10px] text-slate-500 uppercase tracking-widest">
                                 Global Nodes Active
                             </span>
+                        </div>
+                    </div>
+
+                    {/* Socials */}
+                    <div className="pt-4 md:pt-6 border-t border-white/30">
+                        <h2 className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-slate-400 font-bold mb-3 md:mb-4">
+                            Connect
+                        </h2>
+                        <div className="flex items-center gap-3">
+                            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/40 text-slate-600 hover:bg-orange-100 hover:text-orange-600 transition-colors">
+                                <Linkedin className="w-4 h-4" />
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/40 text-slate-600 hover:bg-orange-100 hover:text-orange-600 transition-colors">
+                                <Twitter className="w-4 h-4" />
+                            </a>
+                            <a href="https://github.com" target="_blank" rel="noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/40 text-slate-600 hover:bg-orange-100 hover:text-orange-600 transition-colors">
+                                <Github className="w-4 h-4" />
+                            </a>
+                            <a href="https://dribbble.com" target="_blank" rel="noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/40 text-slate-600 hover:bg-orange-100 hover:text-orange-600 transition-colors">
+                                <Dribbble className="w-4 h-4" />
+                            </a>
                         </div>
                     </div>
                 </div>
