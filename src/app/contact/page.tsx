@@ -1,28 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import LottiePlayer from "@/components/LottiePlayer";
-import { contactBudgetOptions, contactServiceOptions } from "@/content/site";
-
-interface ContactField {
-    label: string;
-    placeholder: string;
-    type: "text" | "email";
-    required?: boolean;
-}
-
-const contactFields: ContactField[] = [
-    { label: "Name", placeholder: "Full Name", type: "text", required: true },
-    { label: "Email", placeholder: "work@domain.com", type: "email", required: true },
-    { label: "Company", placeholder: "Organization", type: "text" },
-    { label: "Country", placeholder: "Your Region", type: "text" },
-];
+import { Linkedin, Twitter, Github, Dribbble } from "lucide-react";
 
 export default function ContactPage() {
-    const anchorRef = useRef<HTMLElement | null>(null);
-    const formRef = useRef<HTMLElement | null>(null);
-    const infoRef = useRef<HTMLElement | null>(null);
-
     useEffect(() => {
         // Only apply parallax on desktop
         const isMobile = window.innerWidth < 1024;
@@ -32,9 +14,13 @@ export default function ContactPage() {
             const x = (window.innerWidth / 2 - e.pageX) / 50;
             const y = (window.innerHeight / 2 - e.pageY) / 50;
 
-            if (anchorRef.current) anchorRef.current.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px)`;
-            if (formRef.current) formRef.current.style.transform = `translate(${x * 1.5}px, ${y * 1.5}px)`;
-            if (infoRef.current) infoRef.current.style.transform = `translate(${x * 2.5}px, ${y * 2.5}px)`;
+            const anchor = document.getElementById("central-anchor");
+            const widgetL = document.getElementById("contact-form-widget");
+            const widgetR = document.getElementById("contact-info-widget");
+
+            if (anchor) anchor.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px)`;
+            if (widgetL) widgetL.style.transform = `translate(${x * 1.5}px, ${y * 1.5}px)`;
+            if (widgetR) widgetR.style.transform = `translate(${x * 2.5}px, ${y * 2.5}px)`;
         };
 
         document.addEventListener("mousemove", handleMouseMove);
@@ -46,7 +32,7 @@ export default function ContactPage() {
             {/* Central Globe Lottie — hidden on mobile */}
             <section
                 className="hidden lg:flex absolute inset-0 m-auto w-[50%] h-[600px] z-10 items-center justify-center pointer-events-none"
-                ref={anchorRef}
+                id="central-anchor"
             >
                 <div className="relative w-[500px] h-[500px] rounded-full animate-[float_6s_ease-in-out_infinite] flex items-center justify-center">
                     <LottiePlayer src="/lottie/globe.json" className="w-80 h-80" />
@@ -59,7 +45,7 @@ export default function ContactPage() {
             {/* Contact Form Widget */}
             <section
                 className="relative lg:absolute lg:left-[10%] lg:top-[15%] w-full max-w-lg lg:w-[40%] lg:min-w-[400px] lg:max-w-[500px] z-20 glass-panel rounded-[2rem] md:rounded-[2.5rem] p-6 sm:p-8 md:p-10 spatial-hover"
-                ref={formRef}
+                id="contact-form-widget"
             >
                 <header className="mb-6 md:mb-8">
                     <h1 className="text-2xl md:text-3xl font-light tracking-tight text-slate-800">
@@ -71,33 +57,50 @@ export default function ContactPage() {
                 </header>
                 <form action="#" className="space-y-4 md:space-y-5">
                     <div className="grid grid-cols-2 gap-4">
-                        {contactFields.slice(0, 2).map((field) => (
-                            <div key={field.label}>
-                                <label className="block text-[10px] uppercase tracking-widest text-slate-400 mb-1 ml-4">
-                                    {field.label}
-                                </label>
-                                <input
-                                    className="w-full bg-white/40 border-0 rounded-xl md:rounded-2xl px-4 md:px-5 py-3 focus:ring-2 focus:ring-orange-300 placeholder:text-slate-400 text-sm transition-all"
-                                    placeholder={field.placeholder}
-                                    type={field.type}
-                                    required={field.required}
-                                />
-                            </div>
-                        ))}
+                        <div>
+                            <label className="block text-[10px] uppercase tracking-widest text-slate-400 mb-1 ml-4">
+                                Name
+                            </label>
+                            <input
+                                className="w-full bg-white/40 border-0 rounded-xl md:rounded-2xl px-4 md:px-5 py-3 focus:ring-2 focus:ring-orange-300 placeholder:text-slate-400 text-sm transition-all"
+                                placeholder="Full Name"
+                                type="text"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] uppercase tracking-widest text-slate-400 mb-1 ml-4">
+                                Email
+                            </label>
+                            <input
+                                className="w-full bg-white/40 border-0 rounded-xl md:rounded-2xl px-4 md:px-5 py-3 focus:ring-2 focus:ring-orange-300 placeholder:text-slate-400 text-sm transition-all"
+                                placeholder="work@domain.com"
+                                type="email"
+                                required
+                            />
+                        </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
-                        {contactFields.slice(2).map((field) => (
-                            <div key={field.label}>
-                                <label className="block text-[10px] uppercase tracking-widest text-slate-400 mb-1 ml-4">
-                                    {field.label}
-                                </label>
-                                <input
-                                    className="w-full bg-white/40 border-0 rounded-xl md:rounded-2xl px-4 md:px-5 py-3 focus:ring-2 focus:ring-orange-300 placeholder:text-slate-400 text-sm transition-all"
-                                    placeholder={field.placeholder}
-                                    type={field.type}
-                                />
-                            </div>
-                        ))}
+                        <div>
+                            <label className="block text-[10px] uppercase tracking-widest text-slate-400 mb-1 ml-4">
+                                Company
+                            </label>
+                            <input
+                                className="w-full bg-white/40 border-0 rounded-xl md:rounded-2xl px-4 md:px-5 py-3 focus:ring-2 focus:ring-orange-300 placeholder:text-slate-400 text-sm transition-all"
+                                placeholder="Organization"
+                                type="text"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-[10px] uppercase tracking-widest text-slate-400 mb-1 ml-4">
+                                Country
+                            </label>
+                            <input
+                                className="w-full bg-white/40 border-0 rounded-xl md:rounded-2xl px-4 md:px-5 py-3 focus:ring-2 focus:ring-orange-300 placeholder:text-slate-400 text-sm transition-all"
+                                placeholder="Your Region"
+                                type="text"
+                            />
+                        </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div>
@@ -106,11 +109,10 @@ export default function ContactPage() {
                             </label>
                             <select className="w-full bg-white/40 border-0 rounded-xl md:rounded-2xl px-4 md:px-5 py-3 focus:ring-2 focus:ring-orange-300 text-slate-700 text-sm transition-all appearance-none cursor-pointer">
                                 <option value="">Select Service</option>
-                                {contactServiceOptions.map((option) => (
-                                    <option key={option.value} value={option.value}>
-                                        {option.label}
-                                    </option>
-                                ))}
+                                <option value="software">Custom Software</option>
+                                <option value="ai">AI Agents</option>
+                                <option value="automation">Workflow Automation</option>
+                                <option value="saas">SaaS Development</option>
                             </select>
                         </div>
                         <div>
@@ -119,11 +121,9 @@ export default function ContactPage() {
                             </label>
                             <select className="w-full bg-white/40 border-0 rounded-xl md:rounded-2xl px-4 md:px-5 py-3 focus:ring-2 focus:ring-orange-300 text-slate-700 text-sm transition-all appearance-none cursor-pointer">
                                 <option value="">Select Budget</option>
-                                {contactBudgetOptions.map((option) => (
-                                    <option key={option.value} value={option.value}>
-                                        {option.label}
-                                    </option>
-                                ))}
+                                <option value="5k-15k">$5k - $15k</option>
+                                <option value="15k-50k">$15k - $50k</option>
+                                <option value="50k+">$50k+</option>
                             </select>
                         </div>
                     </div>
@@ -160,7 +160,7 @@ export default function ContactPage() {
             {/* Info Card Widget */}
             <section
                 className="relative lg:absolute lg:right-[15%] lg:top-[35%] w-full max-w-md lg:w-[25%] lg:min-w-[280px] lg:max-w-[380px] z-20 glass-panel rounded-[2rem] md:rounded-[2.5rem] p-6 sm:p-8 md:p-10 spatial-hover"
-                ref={infoRef}
+                id="contact-info-widget"
             >
                 <div className="space-y-8 md:space-y-10">
                     {/* Contact Info */}
@@ -221,6 +221,27 @@ export default function ContactPage() {
                             <span className="text-[10px] text-slate-500 uppercase tracking-widest">
                                 Global Nodes Active
                             </span>
+                        </div>
+                    </div>
+
+                    {/* Socials */}
+                    <div className="pt-4 md:pt-6 border-t border-white/30">
+                        <h2 className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-slate-400 font-bold mb-3 md:mb-4">
+                            Connect
+                        </h2>
+                        <div className="flex items-center gap-3">
+                            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/40 text-slate-600 hover:bg-orange-100 hover:text-orange-600 transition-colors">
+                                <Linkedin className="w-4 h-4" />
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/40 text-slate-600 hover:bg-orange-100 hover:text-orange-600 transition-colors">
+                                <Twitter className="w-4 h-4" />
+                            </a>
+                            <a href="https://github.com" target="_blank" rel="noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/40 text-slate-600 hover:bg-orange-100 hover:text-orange-600 transition-colors">
+                                <Github className="w-4 h-4" />
+                            </a>
+                            <a href="https://dribbble.com" target="_blank" rel="noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/40 text-slate-600 hover:bg-orange-100 hover:text-orange-600 transition-colors">
+                                <Dribbble className="w-4 h-4" />
+                            </a>
                         </div>
                     </div>
                 </div>
