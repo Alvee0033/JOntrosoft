@@ -19,7 +19,7 @@ export default function Footer() {
                             </span>
                         </Link>
                         <p className="text-slate-600 mb-8 max-w-md text-sm md:text-base leading-relaxed">
-                            We design and build bespoke spatial computing solutions, autonomous agents, and scalable platforms for visionary enterprises.
+                            We design and build bespoke software solutions, autonomous agents, and scalable platforms for modern enterprises.
                         </p>
 
                         {/* Newsletter Mini */}
@@ -94,7 +94,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-slate-500 text-xs font-medium">
-                        &copy; {currentYear} JANTRA SERVICES. ALL RIGHTS RESERVED.
+                        &copy; {currentYear} JANTRA. ALL RIGHTS RESERVED.
                     </p>
                     <div className="flex items-center gap-6">
                         <Link href="/privacy" className="text-slate-500 hover:text-slate-900 text-xs font-medium transition-colors">Privacy Policy</Link>

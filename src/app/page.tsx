@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Blocks, Globe2, PencilRuler, Rocket, SearchCheck } from "lucide-react";
+import { FaAws } from "react-icons/fa";
 import {
-  SiAwsamplify,
   SiDocker,
   SiFlutter,
   SiNextdotjs,
@@ -74,58 +74,57 @@ export default function HomePage() {
     "Next.js": SiNextdotjs,
     "Node.js": SiNodedotjs,
     Python: SiPython,
-    AWS: SiAwsamplify,
+    AWS: FaAws,
   };
 
   return (
-    <main className="relative overflow-hidden pt-24">
-      <section className="relative px-6 pb-14 pt-10 md:px-10 lg:px-16 lg:pb-20 lg:pt-16">
-        <div className="mx-auto max-w-7xl">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-orange-100/70 via-white/40 to-amber-50/80 p-[1px] shadow-[0_35px_90px_-45px_rgba(249,115,22,0.45)] md:rounded-[2.5rem]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,146,60,0.24),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(251,191,36,0.16),transparent_24%)]" />
-            <div className="glass-panel relative overflow-hidden rounded-[calc(2rem-1px)] border-orange-100/60 bg-white/25 p-7 backdrop-blur-[44px] md:rounded-[calc(2.5rem-1px)] sm:p-8 md:p-9 lg:p-10">
-              <div className="pointer-events-none absolute -left-20 top-10 h-48 w-48 rounded-full bg-orange-300/18 blur-3xl" />
-              <div className="pointer-events-none absolute bottom-0 right-0 h-56 w-56 rounded-full bg-amber-200/18 blur-3xl" />
-            <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-              <div className="space-y-5 md:space-y-6">
-                <header>
-                  <h1 className="max-w-xl text-3xl font-bold leading-[1.08] tracking-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-[3.6rem]">
-                    Showcasing Technical Capability. <br />
-                    <span className="bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">
-                      Building Digital Trust.
-                    </span>
-                  </h1>
-                </header>
-                <p className="max-w-xl text-sm leading-relaxed text-slate-600 md:text-base lg:text-lg">
-                  JANTRA converts visitors into leads through premium Custom Software, AI Agents, and Agentic Workflow Automation.
-                </p>
-                <div className="flex flex-col items-stretch gap-3 pt-1 sm:flex-row sm:items-center">
-                  <Link
-                    href="/checkout"
-                    className="text-center rounded-full bg-gradient-to-r from-orange-500 to-orange-600 px-5 py-3 font-bold text-white shadow-[0_12px_24px_-8px_rgba(249,115,22,0.5)] transition-all hover:shadow-[0_18px_30px_-8px_rgba(249,115,22,0.55)] active:scale-95 md:px-6"
-                  >
-                    View Our Work
-                  </Link>
-                  <Link
-                    href="/services"
-                    className="text-center rounded-full border border-orange-100/80 bg-white/70 px-5 py-3 font-semibold text-slate-800 transition-all hover:bg-white md:px-6"
-                  >
-                    Our Services
-                  </Link>
-                </div>
-                <div className="flex flex-wrap items-center gap-4 border-t border-orange-100/70 pt-5 md:gap-5 md:pt-6">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/80 px-3 py-2 text-slate-700 shadow-[0_10px_24px_-18px_rgba(15,23,42,0.28)]">
-                    <Globe2 className="h-4 w-4 text-orange-500" strokeWidth={2} />
-                    <span className="text-xs font-semibold md:text-sm">Trusted by businesses across the world</span>
+    <main className="relative overflow-hidden pt-16">
+      <section className="relative px-6 py-6 lg:py-10">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-orange-100/40 via-white/40 to-amber-50/40 p-1 shadow-[0_20px_50px_-20px_rgba(249,115,22,0.3)]">
+            <div className="glass-panel relative overflow-hidden rounded-[calc(2.5rem-4px)] border-white/60 bg-white/20 p-8 backdrop-blur-2xl md:p-12 lg:p-16">
+              <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+                <div className="lg:col-span-7 space-y-6 md:space-y-8">
+                  <header>
+                    <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+                      Showcasing Technical <br className="hidden xl:block" /> Capability. <br />
+                      <span className="bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">
+                        Building Digital Trust.
+                      </span>
+                    </h1>
+                  </header>
+                  <p className="max-w-xl text-base leading-relaxed text-slate-600 md:text-lg lg:text-xl">
+                    JANTRA converts visitors into leads through premium Custom Software, AI Agents, and Agentic Workflow Automation.
+                  </p>
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center pt-2">
+                    <Link
+                      href="/checkout"
+                      className="inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-4 text-base font-bold text-white shadow-xl transition-all hover:bg-slate-800 hover:scale-[1.02] active:scale-95"
+                    >
+                      View Our Work
+                    </Link>
+                    <Link
+                      href="/services"
+                      className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/50 px-8 py-4 text-base font-semibold text-slate-800 transition-all hover:bg-white hover:border-orange-200"
+                    >
+                      Our Services
+                    </Link>
                   </div>
+                </div>
+
+                  <div className="relative hidden lg:block lg:col-span-5 h-[450px] xl:h-[550px]">
+                  <LottiePlayer src="/lottie/robotics.json" className="h-full w-full scale-110" priority />
                 </div>
               </div>
 
-              <div className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-[520px]">
-                <LottiePlayer src="/lottie/robotics.json" className="relative h-full w-full scale-x-[-1] scale-y-110" />
+              {/* Scroll Down Indicator */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                <div className="w-5 h-9 rounded-full border-2 border-orange-600 flex justify-center p-1 shadow-[0_0_15px_rgba(234,88,12,0.2)]">
+                  <div className="w-1 h-2 rounded-full bg-orange-600 animate-[scroll_2s_infinite]" />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-orange-600/80">Scroll</span>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </section>
@@ -150,33 +149,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-6 py-6 md:px-10 lg:px-16">
-        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-orange-100/80 bg-gradient-to-br from-white via-orange-50/55 to-amber-50/70 p-3 shadow-[0_25px_65px_-40px_rgba(249,115,22,0.35)] md:p-4">
-          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+      <section className="px-6 py-4 lg:py-6">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {homeStats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="fade-up rounded-[1.5rem] border border-white/80 bg-white/85 p-5 shadow-[0_14px_35px_-28px_rgba(15,23,42,0.25)] transition-transform duration-300 hover:-translate-y-1"
-                style={{ animationDelay: `${120 + index * 70}ms` }}
+                className="flex flex-col items-center justify-center rounded-3xl border border-orange-100/50 bg-white/40 p-6 shadow-sm backdrop-blur-md transition-all hover:border-orange-300 hover:bg-white/60 md:p-8"
+                style={{ animationDelay: `${120 + index * 100}ms` }}
               >
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-orange-300 text-white shadow-lg">
-                    <Icon name={stat.icon} />
-                  </div>
-                  <span className="rounded-full bg-orange-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-orange-700">
-                    Metric
-                  </span>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-600 text-white shadow-lg">
+                  <Icon name={stat.icon} />
                 </div>
-                <p className="mt-5 text-3xl font-bold text-slate-900 md:text-4xl">{stat.value}</p>
-                <p className="mt-2 text-sm font-medium text-slate-600">{stat.label}</p>
+                <p className="text-3xl font-bold text-slate-900 md:text-4xl lg:text-5xl">{stat.value}</p>
+                <p className="mt-2 text-xs font-bold uppercase tracking-widest text-slate-500">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-12 md:px-10 lg:px-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="py-10 lg:py-14 px-6">
+        <div className="mx-auto max-w-[1400px]">
           <div className="mb-8 max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-600">Services Preview</p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-5xl">
@@ -204,7 +198,11 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="h-44 sm:h-52">
-                      <LottiePlayer src={service.animationSrc} className="h-full w-full scale-[1.35]" />
+                      <LottiePlayer
+                        src={service.animationSrc}
+                        className="h-full w-full scale-[1.35]"
+                        priority={service.title === "Custom Software Development" || service.title === "AI Agent Development"}
+                      />
                     </div>
                   </div>
                 ) : (
@@ -224,8 +222,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-6 py-12 md:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1fr_1.15fr]">
+      <section className="py-10 lg:py-14 px-6">
+        <div className="mx-auto w-full grid gap-8 lg:grid-cols-[1fr_1.15fr] max-w-[1400px]">
           <div className="overflow-hidden rounded-[2rem] border border-orange-100 bg-gradient-to-br from-white via-orange-50/55 to-amber-50/70 shadow-[0_24px_60px_-36px_rgba(249,115,22,0.3)]">
             <div className="h-full p-8 text-slate-900 md:p-10">
               <div className="inline-flex items-center rounded-full border border-orange-200 bg-white/80 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.35em] text-orange-600">
@@ -287,8 +285,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-6 py-12 md:px-10 lg:px-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="py-10 lg:py-14 px-6">
+        <div className="mx-auto max-w-[1400px]">
           <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-600">How We Work</p>
@@ -339,8 +337,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-6 py-12 md:px-10 lg:px-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="py-10 lg:py-14 px-6">
+        <div className="mx-auto max-w-[1400px]">
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-600">Portfolio Highlights</p>
@@ -367,8 +365,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-6 py-12 md:px-10 lg:px-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="py-10 lg:py-14 px-6">
+        <div className="mx-auto max-w-[1400px]">
           <div className="mb-8 max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-600">Testimonials</p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-5xl">
@@ -389,6 +387,7 @@ export default function HomePage() {
                       alt={testimonial.author}
                       width={56}
                       height={56}
+                      sizes="56px"
                       className="h-14 w-14 rounded-full object-cover ring-2 ring-white/80 shadow-lg"
                     />
                     <div>
@@ -418,9 +417,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-6 pb-20 pt-8 md:px-10 lg:px-16">
-        <div className="mx-auto max-w-6xl rounded-[2rem] bg-gradient-to-r from-slate-900 via-slate-800 to-orange-950 p-8 text-white shadow-[0_25px_60px_-20px_rgba(15,23,42,0.65)] md:p-12">
-          <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-200">Build With JONTRO</p>
+      <section className="py-10 lg:py-20 px-6">
+        <div className="mx-auto max-w-[1400px] rounded-[3rem] bg-gradient-to-r from-slate-900 via-slate-800 to-orange-950 p-12 text-white shadow-[0_40px_100px_-20px_rgba(15,23,42,0.6)] md:p-20">
+          <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-200">Build With JANTRA</p>
           <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
