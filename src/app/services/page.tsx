@@ -126,53 +126,52 @@ export default function ServicesPage() {
                 const isEven = index % 2 === 0;
 
                 return (
-                    <section key={service.slug} className="relative w-full py-16 md:py-32 min-h-0 md:min-h-[800px]" id={`service-${index + 1}`}>
+                    <section key={service.slug} className="relative w-full py-16 md:py-24 lg:min-h-[550px] xl:min-h-[600px]" id={`service-${index + 1}`}>
                         <div className="container mx-auto px-6 relative">
-                            {/* Mobile: stacked layout, Desktop: absolute positioned overlap */}
-                            <div className={`flex ${isEven ? 'flex-col lg:block' : 'flex-col-reverse lg:block'} gap-8`}>
-                                {/* Lottie Animation */}
-                                <div className={`relative lg:absolute ${isEven ? 'lg:left-[5%]' : 'lg:right-[5%]'} w-full lg:w-[50%] h-[300px] sm:h-[400px] md:h-[550px] z-10 rounded-[2rem] md:rounded-[2.5rem] ${service.bgGradient} overflow-hidden flex items-center justify-center shadow-2xl`}>
-                                    <LottiePlayer src={service.lottieSrc} className="w-full h-[80%] max-w-[80%]" />
+                            {/* Mobile: stacked layout, Desktop: side-by-side flex layout */}
+                            <div className={`flex flex-col lg:flex-row ${isEven ? '' : 'lg:flex-row-reverse'} items-center gap-6 lg:gap-10 relative`}>
+                                <div className={`w-full lg:w-[45%] h-[200px] sm:h-[250px] lg:h-[350px] xl:h-[400px] z-10 rounded-[2rem] ${service.bgGradient} overflow-hidden flex items-center justify-center shadow-lg relative shrink-0`}>
+                                    <LottiePlayer src={service.lottieSrc} className="w-[85%] h-[85%]" />
                                 </div>
 
                                 {/* Glass Content Card */}
-                                <div className={`relative lg:absolute ${isEven ? 'lg:right-[10%] lg:top-[50px] lg:bottom-auto' : 'lg:left-[10%] lg:top-[50px] lg:bottom-auto'} w-full lg:w-[45%] z-20 glass-panel bg-white/60 md:bg-white/80 backdrop-blur-xl border border-white/50 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)]`}>
-                                    <div className="flex items-center gap-3 mb-5 md:mb-6">
-                                        <div className="p-3 bg-white shadow-md text-orange-600 rounded-xl">
-                                            <service.icon className="w-6 h-6 md:w-8 md:h-8" />
+                                <div className={`w-full lg:w-[55%] z-20 glass-panel bg-white/70 lg:bg-white/60 backdrop-blur-xl border border-white/50 p-6 sm:p-7 lg:p-8 xl:p-10 rounded-[2rem] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)]`}>
+                                    <div className="flex items-center gap-3 mb-4 lg:mb-5">
+                                        <div className="p-2.5 bg-white shadow-sm text-orange-600 rounded-xl">
+                                            <service.icon className="w-5 h-5 lg:w-6 h-6" />
                                         </div>
                                         <span className="text-orange-600 font-bold tracking-widest text-[10px] md:text-xs uppercase bg-orange-100/50 px-3 py-1.5 rounded-full inline-block">
                                             Core Service {String(index + 1).padStart(2, '0')}
                                         </span>
                                     </div>
 
-                                    <h2 className="text-2xl md:text-4xl font-bold mb-4 text-slate-900 leading-tight">
+                                    <h2 className="text-2xl lg:text-3xl font-bold mb-3 text-slate-900 leading-tight">
                                         {service.title}
                                     </h2>
 
-                                    <p className="text-slate-600 leading-relaxed mb-6 md:mb-8 text-sm md:text-base">
+                                    <p className="text-slate-600 leading-relaxed mb-6 text-sm lg:text-base">
                                         {service.description}
                                     </p>
 
                                     {/* Feature list */}
-                                    <div className="mb-6 md:mb-8 bg-slate-50/50 p-4 rounded-2xl border border-slate-100">
-                                        <h4 className="text-sm font-semibold text-slate-800 mb-3">Key Capabilities</h4>
-                                        <ul className="space-y-2.5">
+                                    <div className="mb-6 bg-slate-50/50 p-4 rounded-xl border border-slate-100">
+                                        <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Key Capabilities</h4>
+                                        <ul className="space-y-2">
                                             {service.features.map((feature, fIdx) => (
-                                                <li key={fIdx} className="flex items-start gap-3 text-sm text-slate-600">
+                                                <li key={fIdx} className="flex items-start gap-2.5 text-sm text-slate-700">
                                                     <CheckCircle className="w-4 h-4 text-orange-500 mt-0.5 shrink-0" />
-                                                    <span className="font-medium text-slate-700">{feature}</span>
+                                                    <span className="font-medium">{feature}</span>
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
 
                                     {/* Industry tags */}
-                                    <div className="mb-8 md:mb-10">
-                                        <h4 className="text-sm font-semibold text-slate-800 mb-3">Industries</h4>
+                                    <div className="mb-6 lg:mb-8">
+                                        <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2.5">Industries</h4>
                                         <div className="flex flex-wrap gap-2">
                                             {service.industries.map((industry, iIdx) => (
-                                                <span key={iIdx} className="px-3 md:px-4 py-1.5 bg-white border border-slate-200 text-slate-600 text-xs rounded-full font-medium shadow-sm transition-all hover:border-orange-200 hover:text-orange-600">
+                                                <span key={iIdx} className="px-3 py-1.5 bg-white border border-slate-200 text-slate-600 text-xs rounded-full font-medium shadow-sm">
                                                     {industry}
                                                 </span>
                                             ))}
@@ -180,7 +179,7 @@ export default function ServicesPage() {
                                     </div>
 
                                     <div className="pt-2 border-t border-slate-200 border-dashed">
-                                        <Link href={`/services/${service.slug}`} className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full hover:shadow-[0_10px_20px_-5px_rgba(249,115,22,0.4)] transition-all font-bold text-sm md:text-base active:scale-95 group">
+                                        <Link href={`/services/${service.slug}`} className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full hover:shadow-[0_10px_20px_-5px_rgba(249,115,22,0.4)] transition-all font-bold text-sm active:scale-95 group">
                                             <span>Explore Case Studies</span>
                                             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

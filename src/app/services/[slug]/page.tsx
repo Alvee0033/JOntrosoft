@@ -36,14 +36,14 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </Link>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-20 items-center">
-                    <div>
+                    <div className="text-center lg:text-left">
                         <span className="text-orange-600 font-bold tracking-widest text-[10px] md:text-xs uppercase bg-orange-100/50 px-3 py-1.5 rounded-full inline-block mb-6">
                             {service.category}
                         </span>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-tight mb-8">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-tight mb-6 md:mb-8">
                             {service.title}
                         </h1>
-                        <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
+                        <p className="text-slate-600 text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
                             {service.description}
                         </p>
                     </div>
@@ -53,17 +53,17 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </div>
 
                 {/* 2. What the service is */}
-                <section className="mb-24 max-w-4xl">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-6">What this service is</h2>
-                    <p className="text-slate-600 leading-relaxed text-lg">
+                <section className="mb-24 max-w-4xl mx-auto text-center md:text-left">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">What this service is</h2>
+                    <p className="text-slate-600 leading-relaxed text-base md:text-lg px-4 md:px-0">
                         This service is a comprehensive engineering partnership designed to solve your most complex digital challenges. We don't just deliver code; we deliver highly resilient, scalable systems tailored to integrate seamlessly with your existing infrastructure. By leveraging cutting-edge development paradigms and architectural best practices, we ensure your resulting platforms are robust, future-proof, and designed to perform exceptionally well under intense operational loads.
                     </p>
                 </section>
 
                 {/* 3. Deliverables */}
                 <section className="mb-24">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-10">Key Deliverables</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 md:mb-10 text-center md:text-left">Key Deliverables</h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         {[
                             { title: "Architecture Blueprints", desc: "Detailed system diagrams, data flow representations, and scaling matrices.", icon: LayoutTemplate },
                             { title: "Production Code", desc: "Clean, documented, and fully tested source code repository.", icon: Layers },
@@ -81,13 +81,13 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </section>
 
                 {/* 4. Development Process */}
-                <section className="mb-24 bg-slate-900 text-white rounded-[3rem] p-10 md:p-16 relative overflow-hidden">
+                <section className="mb-24 bg-orange-600 text-white rounded-[3rem] p-8 md:p-12 lg:p-16 relative overflow-hidden shadow-xl">
                     {/* Background abstract */}
-                    <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none"
-                        style={{ backgroundImage: 'radial-gradient(circle at 100% 0%, #f97316 0%, transparent 50%)' }}></div>
+                    <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full opacity-20 pointer-events-none"
+                        style={{ backgroundImage: 'radial-gradient(circle at 100% 0%, #ffffff 0%, transparent 50%)' }}></div>
 
-                    <h2 className="text-3xl font-bold mb-12 relative z-10">Our Development Process</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-10 md:mb-12 relative z-10 text-center md:text-left">Our Development Process</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 relative z-10">
                         {[
                             { num: "01", title: "Discovery & Arch", desc: "Mapping the requirements, drawing boundaries, and designing the schemas." },
                             { num: "02", title: "Sprints & Dev", desc: "Two-week agile coding cycles with frequent artifact delivery." },
@@ -95,9 +95,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                             { num: "04", title: "Go-Live & Support", desc: "Zero-downtime deployment and continuous SLA support." }
                         ].map((step, i) => (
                             <div key={i} className="relative">
-                                <div className="text-5xl font-black text-white/10 mb-2">{step.num}</div>
-                                <h3 className="font-bold text-lg text-white mb-2">{step.title}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
+                                <div className="text-5xl md:text-6xl font-black text-white/20 mb-3 text-center md:text-left">{step.num}</div>
+                                <h3 className="font-bold text-lg md:text-xl text-white mb-2 text-center md:text-left">{step.title}</h3>
+                                <p className="text-orange-100 text-sm md:text-base leading-relaxed text-center md:text-left">{step.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -107,7 +107,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 <section className="mb-24 grid grid-cols-1 lg:grid-cols-2 gap-16">
                     {/* Use Cases */}
                     <div>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-8">Primary Use Cases</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 md:mb-8 text-center md:text-left">Primary Use Cases</h2>
                         <ul className="space-y-4">
                             {[
                                 "Modernizing legacy on-premise monolithic applications.",
@@ -125,8 +125,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
                     {/* Tech Stack */}
                     <div>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-8">Related Tech Stack</h2>
-                        <div className="flex flex-wrap gap-3">
+                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 md:mb-8 text-center md:text-left">Related Tech Stack</h2>
+                        <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                             {["React", "Next.js", "Node.js", "Python", "Rust", "PostgreSQL", "MongoDB", "Redis", "AWS", "Google Cloud", "Docker", "Kubernetes", "OpenAI"].map((tech, i) => (
                                 <span key={i} className="px-4 py-2 border border-slate-200 rounded-full text-slate-600 bg-slate-50 font-bold text-sm shadow-sm transition-all hover:border-orange-300 hover:text-orange-600">
                                     {tech}
@@ -136,13 +136,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                     </div>
                 </section>
 
-                {/* 7. Pricing Tiers */}
                 <section className="mb-24">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-4">Pricing Engagements</h2>
-                        <p className="text-slate-600">Scalable models depending on your exact requirements.</p>
+                    <div className="text-center mb-10 md:mb-12">
+                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3 md:mb-4">Pricing Engagements</h2>
+                        <p className="text-slate-600 text-sm md:text-base px-4">Scalable models depending on your exact requirements.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-lg md:max-w-none mx-auto">
                         {[
                             { name: "Starter", price: "$5K+", desc: "For straightforward MVPs and core foundational setups." },
                             { name: "Growth", price: "$15K+", desc: "For scaling platforms requiring complex integrations.", highlighted: true },
@@ -161,26 +160,26 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </section>
 
                 {/* 8. Case Study Teaser */}
-                <section className="mb-24 bg-orange-50 border border-orange-100 rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center gap-10">
-                    <div className="w-full md:w-1/3 aspect-square bg-slate-900 rounded-[2rem] flex items-center justify-center text-7xl font-black text-white/5 relative overflow-hidden shadow-lg">
-                        <div className="absolute inset-0 bg-[url('/img/placeholder-abstract.jpg')] opacity-20 bg-cover bg-center"></div>
+                <section className="mb-24 bg-orange-50 border border-orange-100 rounded-[3rem] p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center gap-10">
+                    <div className="w-full md:w-1/3 aspect-square bg-orange-500 rounded-[2.5rem] flex items-center justify-center text-7xl font-black text-white/20 relative overflow-hidden shadow-xl">
+                        <div className="absolute inset-0 bg-[url('/img/placeholder-abstract.jpg')] opacity-20 bg-cover bg-center mix-blend-overlay"></div>
                         C
                     </div>
-                    <div className="w-full md:w-2/3">
-                        <span className="text-orange-600 font-bold tracking-widest text-xs uppercase mb-3 block">Featured Case Study</span>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-4">Transforming logistics with agentic workflows</h2>
-                        <p className="text-slate-600 leading-relaxed mb-8">
+                    <div className="w-full md:w-2/3 text-center md:text-left">
+                        <span className="text-orange-600 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 block">Featured Case Study</span>
+                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Transforming logistics with agentic workflows</h2>
+                        <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6 md:mb-8">
                             See how we helped a global logistics firm reduce manual processing errors by 98% and increase parallel routing efficiency using custom LLM agents and {service.title.toLowerCase()}.
                         </p>
-                        <Link href="/work/logichain-automation" className="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition-colors shadow-md">
+                        <Link href="/work/logichain-automation" className="inline-flex items-center justify-center md:justify-start gap-2 bg-slate-900 text-white px-8 py-3.5 md:py-4 rounded-full font-bold text-sm md:text-base hover:bg-orange-600 transition-colors shadow-md w-full sm:w-auto">
                             Read the Case Study <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
                 </section>
 
                 {/* 9. FAQ */}
-                <section className="mb-24 max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">Frequently Asked Questions</h2>
+                <section className="mb-24 max-w-4xl mx-auto px-2 md:px-0">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8 md:mb-10 text-center">Frequently Asked Questions</h2>
                     <div className="space-y-6">
                         {[
                             { q: "How quickly can we start the project?", a: "Once the Statement of Work (SOW) is signed, we usually kick off the discovery phase within 3-5 business days." },
@@ -196,14 +195,14 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </section>
 
                 {/* 10. CTA */}
-                <section className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-[3rem] p-10 md:p-16 text-center text-white shadow-xl relative overflow-hidden">
+                <section className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-[3rem] p-8 md:p-12 lg:p-16 text-center text-white shadow-xl relative overflow-hidden mx-2 md:mx-0">
                     <div className="absolute inset-0 bg-white/10 blur-[50px] mix-blend-overlay"></div>
                     <div className="relative z-10">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to engineer your future?</h2>
-                        <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">Ready to engineer your future?</h2>
+                        <p className="text-white/90 text-sm md:text-lg lg:text-xl max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed">
                             Let's get on a brief discovery call to see if JANTRA's engineering team is the right fit to execute your vision.
                         </p>
-                        <Link href="/contact" className="inline-flex items-center gap-2 bg-slate-900 text-white px-10 py-5 rounded-full font-bold hover:bg-slate-800 transition-all shadow-[0_10px_30px_-10px_rgba(15,23,42,0.8)] active:scale-95 text-lg">
+                        <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white px-6 md:px-10 py-4 md:py-5 rounded-full font-bold hover:bg-slate-800 transition-all shadow-[0_10px_30px_-10px_rgba(15,23,42,0.8)] active:scale-95 text-sm md:text-lg w-full sm:w-auto">
                             <Send className="w-5 h-5" /> Start completely free consultation
                         </Link>
                     </div>

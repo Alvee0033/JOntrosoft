@@ -82,7 +82,7 @@ export default function HomePage() {
       <section className="relative px-6 py-6 lg:py-10">
         <div className="mx-auto max-w-[1600px]">
           <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-orange-100/40 via-white/40 to-amber-50/40 p-1 shadow-[0_20px_50px_-20px_rgba(249,115,22,0.3)]">
-            <div className="glass-panel relative overflow-hidden rounded-[calc(2.5rem-4px)] border-white/60 bg-white/20 p-8 backdrop-blur-2xl md:p-12 lg:p-16">
+            <div className="glass-panel relative overflow-hidden rounded-[calc(2.5rem-4px)] border-white/60 bg-white/20 p-6 md:p-12 lg:p-16 backdrop-blur-2xl">
               <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
                 <div className="lg:col-span-7 space-y-6 md:space-y-8">
                   <header>
@@ -112,7 +112,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                  <div className="relative hidden lg:block lg:col-span-5 h-[450px] xl:h-[550px]">
+                <div className="relative hidden lg:block lg:col-span-5 h-[450px] xl:h-[550px]">
                   <LottiePlayer src="/lottie/robotics.json" className="h-full w-full scale-110" priority />
                 </div>
               </div>
@@ -418,7 +418,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-10 lg:py-20 px-6">
-        <div className="mx-auto max-w-[1400px] rounded-[3rem] bg-gradient-to-r from-slate-900 via-slate-800 to-orange-950 p-12 text-white shadow-[0_40px_100px_-20px_rgba(15,23,42,0.6)] md:p-20">
+        <div className="mx-auto max-w-[1400px] rounded-[3rem] bg-gradient-to-r from-slate-900 via-slate-800 to-orange-950 p-8 md:p-12 lg:p-20 text-white shadow-[0_40px_100px_-20px_rgba(15,23,42,0.6)]">
           <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-200">Build With JANTRA</p>
           <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">

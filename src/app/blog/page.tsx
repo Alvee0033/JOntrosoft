@@ -75,8 +75,8 @@ export default function BlogPage() {
                 <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-20">
                     {["All Topics", "Engineering", "Architecture", "UI/UX", "Security", "AI & ML"].map((cat, i) => (
                         <button key={i} className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${i === 0
-                                ? "bg-slate-900 text-white shadow-md hover:bg-orange-600"
-                                : "bg-white border border-slate-200 text-slate-600 hover:border-orange-500 hover:text-orange-600 shadow-sm"
+                            ? "bg-slate-900 text-white shadow-md hover:bg-orange-600"
+                            : "bg-white border border-slate-200 text-slate-600 hover:border-orange-500 hover:text-orange-600 shadow-sm"
                             }`}>
                             {cat}
                         </button>
@@ -169,7 +169,7 @@ export default function BlogPage() {
                 </div>
 
                 {/* Newsletter CTA */}
-                <section className="mt-32 max-w-4xl mx-auto bg-orange-50 rounded-[3rem] p-10 md:p-16 text-center border border-orange-100/50">
+                <section className="mt-32 max-w-4xl mx-auto bg-orange-50 rounded-[3rem] p-8 md:p-12 lg:p-16 text-center border border-orange-100/50">
                     <h2 className="text-3xl font-bold text-slate-900 mb-4">Never miss an insight.</h2>
                     <p className="text-slate-600 mb-8">
                         Join 10,000+ engineers and product leaders receiving our monthly deep-dives. No fluff, just pure engineering.

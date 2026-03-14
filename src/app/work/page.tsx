@@ -97,11 +97,15 @@ export default function PortfolioPage() {
                                 </div>
 
                                 {/* Overlay hover */}
-                                <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex items-center justify-center">
                                     <div className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                         View Case Study <ArrowRight className="w-4 h-4" />
                                     </div>
                                 </div>
+                            </div>
+
+                            <div className="md:hidden mt-3 font-bold text-orange-600 flex items-center gap-1 text-sm">
+                                View Case Study <ArrowRight className="w-3.5 h-3.5" />
                             </div>
 
                             <div className="px-2">
@@ -127,7 +131,7 @@ export default function PortfolioPage() {
                 </div>
 
                 {/* Bottom CTA */}
-                <div className="mt-24 bg-orange-50 rounded-[2.5rem] p-10 md:p-16 text-center border border-orange-100/50">
+                <div className="mt-24 bg-orange-50 rounded-[2.5rem] p-8 md:p-12 lg:p-16 text-center border border-orange-100/50">
                     <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4">Have a project in mind?</h2>
                     <p className="text-slate-600 mb-8 max-w-lg mx-auto">
                         Let's collaborate to build your next big digital product. Our team is ready to deliver.

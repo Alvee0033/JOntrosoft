@@ -168,7 +168,7 @@ await agent.execute(invoiceFile); // Resilient to layout changes`}</code>
                 </div>
 
                 {/* Inline CTA */}
-                <div className="mt-16 bg-gradient-to-r from-slate-900 to-slate-800 rounded-[2.5rem] p-10 md:p-16 text-center shadow-xl">
+                <div className="mt-16 bg-gradient-to-r from-slate-900 to-slate-800 rounded-[2.5rem] p-8 md:p-12 lg:p-16 text-center shadow-xl">
                     <h2 className="text-3xl font-bold text-white mb-4">Ready to implement agentic automation?</h2>
                     <p className="text-slate-300 mb-8 max-w-xl mx-auto">
                         Speak with our engineering team to discover how LLM-backed workflows can eliminate your operational bottlenecks.
