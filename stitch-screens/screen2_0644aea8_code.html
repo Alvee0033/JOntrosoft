@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JANTRA Services - Spatial Vision</title>
+<!-- BEGIN: External Scripts -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          backdropBlur: {
+            '40': '40px',
+          },
+          borderRadius: {
+            '5xl': '2.5rem',
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: External Scripts -->
+<!-- BEGIN: Custom Styling -->
+<style data-purpose="animations">
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 32px 0 rgba(251, 146, 60, 0.15);
+    }
+  </style>
+<style data-purpose="layout-background">
+    body {
+      background-color: #f8fafc; /* bg-slate-50 */
+      overflow-x: hidden;
+    }
+    .orb {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(251, 146, 60, 0.4); /* bg-orange-200/40 approx */
+      filter: blur(150px);
+      z-index: -1;
+    }
+  </style>
+<!-- END: Custom Styling -->
+</head>
+<body class="antialiased text-slate-900">
+<!-- BEGIN: Background Elements -->
+<div class="orb top-[-10%] left-[-10%]"></div>
+<div class="orb bottom-[-10%] right-[-10%]"></div>
+<div class="orb top-[40%] right-[20%] opacity-50"></div>
+<!-- END: Background Elements -->
+<!-- BEGIN: Floating Navigation -->
+<nav class="fixed top-8 left-1/2 -translate-x-1/2 z-50">
+<div class="glass-effect px-8 py-4 rounded-full flex items-center gap-8">
+<div class="font-bold tracking-tighter text-xl text-orange-600">JANTRA</div>
+<ul class="flex gap-6 text-sm font-medium text-slate-700">
+<li><a class="hover:text-orange-500 transition-colors" href="#">Experience</a></li>
+<li><a class="hover:text-orange-500 transition-colors" href="#">Services</a></li>
+<li><a class="hover:text-orange-500 transition-colors" href="#">Showcase</a></li>
+<li><a class="hover:text-orange-500 transition-colors" href="#">Connect</a></li>
+</ul>
+</div>
+</nav>
+<!-- END: Floating Navigation -->
+<!-- BEGIN: Main Content -->
+<main class="relative w-full overflow-hidden">
+<!-- BEGIN: Hero Section -->
+<header class="pt-48 pb-16 text-center px-4">
+<h1 class="text-6xl md:text-8xl font-bold tracking-tight text-slate-900 mb-6">
+        Elevating Reality
+      </h1>
+<p class="text-xl text-slate-600 max-w-2xl mx-auto">
+        JANTRA delivers spatial computing solutions that bridge the gap between physical and digital dimensions.
+      </p>
+</header>
+<!-- END: Hero Section -->
+<!-- BEGIN: Service Section 1 (Z-Pattern) -->
+<section class="relative w-full py-32 min-h-[800px]" id="service-1">
+<div class="container mx-auto relative h-full">
+<!-- 3D Object Placeholder -->
+<div class="absolute left-[10%] w-[45%] h-[500px] z-10 rounded-5xl bg-gradient-to-br from-orange-100 to-orange-200 overflow-hidden flex items-center justify-center shadow-2xl animate-float" data-purpose="3d-placeholder">
+<div class="w-64 h-64 bg-white/30 rounded-full blur-3xl"></div>
+<span class="text-orange-400 font-mono text-xs uppercase tracking-widest absolute">Volumetric Mesh Instance // 01</span>
+</div>
+<!-- Glass Content Card -->
+<div class="glass-effect absolute right-[15%] top-[100px] w-[40%] z-20 p-12 rounded-5xl" data-purpose="service-description">
+<span class="text-orange-500 font-bold tracking-widest text-xs uppercase mb-4 block">Core Service 01</span>
+<h2 class="text-4xl font-bold mb-6">Spatial Infrastructure</h2>
+<p class="text-slate-700 leading-relaxed mb-8">
+            Our specialized framework allows for the deployment of persistent digital twins within physical spaces. Leveraging advanced occlusion and real-world mapping, we create environments that feel natural and tactile.
+          </p>
+<button class="bg-slate-900 text-white px-8 py-3 rounded-full hover:bg-orange-600 transition-all font-medium">
+            Explore Architecture
+          </button>
+</div>
+</div>
+</section>
+<!-- END: Service Section 1 -->
+<!-- BEGIN: Service Section 2 (Reverse Z-Pattern) -->
+<section class="relative w-full py-32 min-h-[800px]" id="service-2">
+<div class="container mx-auto relative h-full">
+<!-- 3D Object Placeholder (Right Side) -->
+<div class="absolute right-[10%] w-[45%] h-[500px] z-10 rounded-5xl bg-gradient-to-tr from-slate-200 to-slate-300 overflow-hidden flex items-center justify-center shadow-2xl animate-float" data-purpose="3d-placeholder" style="animation-delay: -3s;">
+<div class="w-64 h-64 bg-white/40 rounded-full blur-3xl"></div>
+<span class="text-slate-400 font-mono text-xs uppercase tracking-widest absolute">Interactive Node // 02</span>
+</div>
+<!-- Glass Content Card (Left Side Overlapping) -->
+<div class="glass-effect absolute left-[15%] top-[100px] w-[40%] z-20 p-12 rounded-5xl" data-purpose="service-description">
+<span class="text-orange-500 font-bold tracking-widest text-xs uppercase mb-4 block">Core Service 02</span>
+<h2 class="text-4xl font-bold mb-6">Cognitive Interface</h2>
+<p class="text-slate-700 leading-relaxed mb-8">
+            Designed for VisionOS and spatial platforms, our UX patterns prioritize gaze, voice, and gesture. We build interfaces that disappear into the workflow, reducing cognitive load while maximizing immersion.
+          </p>
+<button class="bg-slate-900 text-white px-8 py-3 rounded-full hover:bg-orange-600 transition-all font-medium">
+            Interface Design
+          </button>
+</div>
+</div>
+</section>
+<!-- END: Service Section 2 -->
+<!-- BEGIN: Footer -->
+<footer class="relative z-10 py-24 px-4 text-center">
+<div class="max-w-4xl mx-auto glass-effect p-12 rounded-5xl">
+<h3 class="text-3xl font-bold mb-4">Ready to step into the future?</h3>
+<p class="text-slate-600 mb-8">Join JANTRA in redefining how we interact with information and each other.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<input class="px-6 py-3 rounded-full border-white/50 bg-white/20 backdrop-blur-md focus:ring-orange-500 focus:border-orange-500 min-w-[300px]" placeholder="Enter your email" type="email"/>
+<button class="bg-orange-500 text-white px-10 py-3 rounded-full hover:bg-orange-600 transition-all font-bold">
+            Get Access
+          </button>
+</div>
+</div>
+<div class="mt-12 text-slate-400 text-sm">
+        © 2024 JANTRA SERVICES. ALL RIGHTS RESERVED.
+      </div>
+</footer>
+<!-- END: Footer -->
+</main>
+<!-- END: Main Content -->
+</body></html>
