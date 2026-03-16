@@ -19,6 +19,25 @@ router.post('/login', authLimiter, validate(loginSchema), async (req, res, next)
     try {
         const { email, password } = req.body;
 
+        // Check if environment variables match
+        if (email === env.ADMIN_EMAIL && password === env.ADMIN_PASSWORD) {
+            const token = jwt.sign(
+                { id: 'env-admin', email: env.ADMIN_EMAIL, role: 'admin' },
+                env.JWT_SECRET,
+                { expiresIn: env.JWT_EXPIRES_IN }
+            );
+
+            return res.json({
+                token,
+                user: {
+                    id: 'env-admin',
+                    email: env.ADMIN_EMAIL,
+                    name: 'System Admin',
+                    role: 'admin'
+                }
+            });
+        }
+
         const user = await prisma.adminUser.findUnique({
             where: { email }
         });

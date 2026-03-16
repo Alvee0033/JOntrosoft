@@ -13,6 +13,7 @@ const envSchema = z.object({
     EMAIL_PASS: z.string(),
     EMAIL_FROM: z.string().email(),
     ADMIN_EMAIL: z.string().email(),
+    ADMIN_PASSWORD: z.string(),
     SUPABASE_URL: z.string().url(),
     SUPABASE_SERVICE_KEY: z.string(),
     SUPABASE_BUCKET: z.string().default('jontro-uploads'),
