@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import ClientLayout from '@/components/ClientLayout'
 import BackgroundOrbs from "@/components/BackgroundOrbs";
 
 const bodyFont = DM_Sans({
@@ -18,23 +17,20 @@ const headingFont = Space_Grotesk({
 export const metadata: Metadata = {
   title: "JANTRA - Enterprise Software, Reimagined",
   description: "Experience the next generation of spatial computing for business. Modular, intuitive, and designed for the visionaries of tomorrow.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bodyFont.variable} ${headingFont.variable}`}>
       <body className="bg-slate-50 antialiased text-slate-900 selection:bg-orange-200">
         <BackgroundOrbs />
-        <Navbar />
-        <div className="flex-1 flex flex-col min-h-screen">
+        <ClientLayout>
           {children}
-        </div>
-        <Footer />
+        </ClientLayout>
       </body>
     </html>
-  );
+  )
 }

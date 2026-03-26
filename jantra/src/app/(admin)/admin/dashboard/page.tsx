@@ -64,7 +64,7 @@ export default function DashboardPage() {
     return (
         <div className="space-y-8">
             {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {statCards.map((stat, i) => (
                     <div key={i} className="glass-panel p-6 rounded-[2rem] border-white/60 shadow-lg hover:translate-y-[-4px] transition-all duration-300">
                         <div className="flex items-center justify-between mb-4">
@@ -146,7 +146,7 @@ export default function DashboardPage() {
 
                     <div className="mt-10 p-5 rounded-[1.5rem] bg-slate-900 text-white shadow-xl shadow-slate-200">
                         <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-2">Build Version</p>
-                        <h4 className="font-bold text-lg leading-tight">JONTRO <br /> Dashboard v1.0</h4>
+                        <h4 className="font-bold text-lg leading-tight">JANTRA <br /> Dashboard v1.0</h4>
                         <p className="text-xs text-slate-400 mt-4 leading-relaxed">Enterprise management interface for real-time operations.</p>
                     </div>
                 </div>

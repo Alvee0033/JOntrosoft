@@ -2,19 +2,32 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { navItems } from "@/content/site";
+import Logo from "@/components/Logo";
 
 export default function Navbar() {
     const pathname = usePathname();
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 10);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 md:pt-6">
-            <div className="mx-auto max-w-5xl glass-panel rounded-full px-4 sm:px-8 py-3 md:py-4 flex items-center justify-between">
+        <nav
+            className={`fixed top-0 left-0 right-0 z-[100] px-4 pt-4 md:pt-6 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-sm pb-4" : "bg-transparent"
+                }`}
+        >
+            <div className={`mx-auto max-w-6xl glass-panel rounded-full px-4 sm:px-8 py-3 md:py-4 flex items-center justify-between relative transition-all duration-300 ${scrolled ? "border-transparent bg-transparent shadow-none" : ""}`}>
                 {/* Logo */}
                 <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-tr from-orange-500 to-orange-400 rounded-lg flex-shrink-0" />
+                    <Logo className="w-9 h-9" />
                     <Link href="/" className="text-lg md:text-xl font-bold tracking-tight text-slate-900">
                         JANTRA
                     </Link>
@@ -38,12 +51,14 @@ export default function Navbar() {
                 </div>
 
                 {/* Desktop CTA */}
-                <Link
-                    href="/checkout"
-                    className="hidden md:inline-block bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-slate-800 transition-all active:scale-95"
-                >
-                    View Our Work
-                </Link>
+                <div className="hidden md:flex items-center pr-2">
+                    <Link
+                        href="/#portfolio-section"
+                        className="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-slate-800 transition-all active:scale-95 whitespace-nowrap"
+                    >
+                        View Our Work
+                    </Link>
+                </div>
 
                 {/* Mobile hamburger */}
                 <button
@@ -59,7 +74,7 @@ export default function Navbar() {
 
             {/* Mobile dropdown */}
             {mobileOpen && (
-                <div className="md:hidden mt-2 mx-auto max-w-5xl glass-panel rounded-3xl px-6 py-6 space-y-4">
+                <div className="md:hidden absolute top-full left-4 right-4 mt-2 bg-white rounded-3xl p-6 shadow-2xl border border-slate-100 space-y-4 z-50">
                     {navItems.map((item) => (
                         <Link
                             key={item.href}
@@ -74,7 +89,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                     <Link
-                        href="/checkout"
+                        href="/#portfolio-section"
                         onClick={() => setMobileOpen(false)}
                         className="block w-full text-center bg-slate-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-slate-800 transition-all"
                     >

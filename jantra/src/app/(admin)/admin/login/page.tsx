@@ -22,7 +22,8 @@ export default function LoginPage() {
             const response = await api.post("/auth/login", { email, password });
             login(response.data.token, response.data.user);
         } catch (err: any) {
-            setError(err.response?.data?.message || "Invalid credentials. Please try again.");
+            const errorMessage = err.response?.data?.error || err.response?.data?.message || "Invalid credentials. Please try again.";
+            setError(errorMessage);
         } finally {
             setLoading(false);
         }
@@ -50,7 +51,7 @@ export default function LoginPage() {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="w-full bg-white/40 border-0 rounded-2xl pl-12 pr-5 py-4 focus:ring-2 focus:ring-orange-300 placeholder:text-slate-400 text-sm transition-all"
-                                    placeholder="admin@jontro.com"
+                                    placeholder="admin@jantra.com"
                                     required
                                 />
                             </div>
@@ -100,7 +101,7 @@ export default function LoginPage() {
                     </form>
 
                     <footer className="mt-8 text-center">
-                        <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400">JONTRO Management Systems — v1.0.0</p>
+                        <p className="text-[10px] uppercase tracking-[0.2em] text-slate-400">JANTRA Management Systems — v1.0.0</p>
                     </footer>
                 </div>
             </div>

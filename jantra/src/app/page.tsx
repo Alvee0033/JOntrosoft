@@ -1,6 +1,21 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Blocks, Globe2, PencilRuler, Rocket, SearchCheck } from "lucide-react";
+import {
+  ArrowRight,
+  Blocks,
+  ChevronRight,
+  PencilRuler,
+  Rocket,
+  SearchCheck,
+  Users,
+  Zap,
+  Shield,
+  Globe,
+  Star
+} from "lucide-react";
 import { FaAws } from "react-icons/fa";
 import {
   SiDocker,
@@ -16,52 +31,38 @@ import {
 import LottiePlayer from "@/components/LottiePlayer";
 import {
   homeDifferentiators,
-  homePortfolioHighlights,
   homeProcess,
   homeServicePreview,
   homeStats,
   homeTechStack,
   homeTestimonials,
 } from "@/content/site";
+import { getFeaturedProjects, getProjectGradient } from "@/data/projects";
+import api from "@/lib/api";
 
 function Icon({ name }: { name: string }) {
   const common = "h-5 w-5";
 
   switch (name) {
     case "rocket":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><path d="M5 19c2.5-1 4-2.5 5-5m4-9c2.2.6 4.4 2.8 5 5-1.3 4-4 7.3-8 10-2-.5-3.5-2-4-4 2.7-4 6-6.7 10-8Z" /><path d="M8 16 5 19l-1 4 4-1 3-3" /><circle cx="15" cy="9" r="1.5" /></svg>;
+      return <Rocket className={common} />;
     case "globe":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" /></svg>;
+      return <Globe className={common} />;
     case "star":
-      return <svg viewBox="0 0 24 24" fill="currentColor" className={common}><path d="m12 3.8 2.6 5.3 5.9.8-4.2 4.1 1 5.8L12 17l-5.3 2.8 1-5.8L3.5 10l5.9-.8L12 3.8Z" /></svg>;
+      return <Star className={common} />;
     case "users":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" /><circle cx="9.5" cy="7" r="3" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 4.13a3 3 0 0 1 0 5.74" /></svg>;
-    case "code":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><path d="m8 16-4-4 4-4M16 8l4 4-4 4M14 4l-4 16" /></svg>;
-    case "spark":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3ZM19 16l.9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16ZM5 16l.9 2.1L8 19l-2.1.9L5 22l-.9-2.1L2 19l2.1-.9L5 16Z" /></svg>;
-    case "flow":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><rect x="3" y="4" width="7" height="6" rx="2" /><rect x="14" y="4" width="7" height="6" rx="2" /><rect x="9" y="14" width="7" height="6" rx="2" /><path d="M6.5 10v2a2 2 0 0 0 2 2H12m5.5-4v2a2 2 0 0 1-2 2H12" /></svg>;
-    case "stack":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><path d="m12 4 8 4-8 4-8-4 8-4Z" /><path d="m4 12 8 4 8-4" /><path d="m4 16 8 4 8-4" /></svg>;
-    case "mobile":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><rect x="7" y="2.5" width="10" height="19" rx="2.5" /><path d="M11 18.5h2" /></svg>;
-    case "cloud":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><path d="M7 18a4 4 0 1 1 .7-7.9A5.5 5.5 0 0 1 18 12a3.5 3.5 0 1 1 0 7H7Z" /></svg>;
-    case "eye":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z" /><circle cx="12" cy="12" r="2.5" /></svg>;
-    case "search":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><circle cx="11" cy="11" r="6" /><path d="m20 20-4.35-4.35" /></svg>;
-    case "pen":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><path d="M12 20h9" /><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z" /></svg>;
-    case "chart":
-      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common}><path d="M3 3v18h18" /><path d="m7 14 3-3 3 2 4-5" /></svg>;
+      return <Users className={common} />;
+    case "zap":
+      return <Zap className={common} />;
+    case "shield":
+      return <Shield className={common} />;
     default:
-      return <span className={common} />;
+      return <Zap className={common} />;
   }
 }
 
 export default function HomePage() {
+  const [featuredProjects, setFeaturedProjects] = useState<any[]>([]);
   const techStackLoop = [...homeTechStack, ...homeTechStack];
   const processIcons = [SearchCheck, PencilRuler, Blocks, Rocket];
   const techIcons: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -77,8 +78,13 @@ export default function HomePage() {
     AWS: FaAws,
   };
 
+  useEffect(() => {
+    // We prioritize local projects as requested for consistency
+    setFeaturedProjects(getFeaturedProjects());
+  }, []);
+
   return (
-    <main className="relative overflow-hidden pt-16">
+    <main className="relative overflow-hidden pt-24">
       <section className="relative px-6 py-6 lg:py-10">
         <div className="mx-auto max-w-[1600px]">
           <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-orange-100/40 via-white/40 to-amber-50/40 p-1 shadow-[0_20px_50px_-20px_rgba(249,115,22,0.3)]">
@@ -97,12 +103,15 @@ export default function HomePage() {
                     JANTRA converts visitors into leads through premium Custom Software, AI Agents, and Agentic Workflow Automation.
                   </p>
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center pt-2">
-                    <Link
-                      href="/checkout"
-                      className="inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-4 text-base font-bold text-white shadow-xl transition-all hover:bg-slate-800 hover:scale-[1.02] active:scale-95"
+                    <button
+                      onClick={() => {
+                        document.getElementById('portfolio-section')
+                          ?.scrollIntoView({ behavior: 'smooth' })
+                      }}
+                      className="inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-4 text-base font-bold text-white shadow-xl transition-all hover:bg-slate-800 hover:scale-[1.02] active:scale-95 cursor-pointer"
                     >
                       View Our Work
-                    </Link>
+                    </button>
                     <Link
                       href="/services"
                       className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/50 px-8 py-4 text-base font-semibold text-slate-800 transition-all hover:bg-white hover:border-orange-200"
@@ -227,7 +236,7 @@ export default function HomePage() {
           <div className="overflow-hidden rounded-[2rem] border border-orange-100 bg-gradient-to-br from-white via-orange-50/55 to-amber-50/70 shadow-[0_24px_60px_-36px_rgba(249,115,22,0.3)]">
             <div className="h-full p-8 text-slate-900 md:p-10">
               <div className="inline-flex items-center rounded-full border border-orange-200 bg-white/80 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.35em] text-orange-600">
-                Why JONTRO
+                Why JANTRA
               </div>
               <h2 className="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
                 A delivery model built to create trust before launch day
@@ -337,30 +346,72 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-10 lg:py-14 px-6">
+      <section id="portfolio-section" className="py-10 lg:py-14 px-6 scroll-mt-32">
         <div className="mx-auto max-w-[1400px]">
-          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <p className="text-xs font-bold uppercase tracking-[0.35em] text-orange-600">Portfolio Highlights</p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-5xl">
                 Selected product and automation work
               </h2>
             </div>
-            <Link href="/checkout" className="text-sm font-semibold text-orange-600 underline underline-offset-4">
-              View pricing and engagement models
+            <Link href="/checkout" className="group flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-orange-600 transition-colors">
+              View engagement models <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
-          <div className="grid gap-5 lg:grid-cols-3">
-            {homePortfolioHighlights.map((project) => (
-              <article key={project.name} className="glass-panel fade-up rounded-[1.75rem] p-6 transition-transform duration-300 hover:-translate-y-1" style={{ animationDelay: "220ms" }}>
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-slate-900 to-slate-700 text-white shadow-lg">
-                  <Icon name={project.icon} />
+
+          <div className="grid gap-8 lg:grid-cols-3">
+            {featuredProjects.map((project, index) => (
+              <Link
+                key={project.id || project.title}
+                href={`/work/${project.slug}`}
+                className="group flex flex-col fade-up"
+                style={{ animationDelay: `${200 + index * 100}ms` }}
+              >
+                <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-slate-200 shadow-sm transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-500/10 group-hover:-translate-y-2">
+                  <div className={`w-full h-full bg-gradient-to-br ${getProjectGradient(index)} flex items-center justify-center overflow-hidden relative`}>
+                    <span className="text-white font-black opacity-20 select-none" style={{ fontSize: '8rem', lineHeight: 1 }}>
+                      {project.title.charAt(0)}
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div className="bg-white/90 backdrop-blur-md text-slate-900 px-5 py-2.5 rounded-full text-xs font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      View Case Study <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
                 </div>
-                <p className="mt-4 text-xs font-bold uppercase tracking-[0.3em] text-orange-600">{project.category}</p>
-                <h3 className="mt-3 text-2xl font-bold text-slate-900">{project.name}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{project.summary}</p>
-              </article>
+
+                <div className="mt-6 px-2">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-2 py-1 rounded-md border border-orange-100">
+                      {project.category?.[0] || 'Web'}
+                    </span>
+                    <div className="flex gap-1">
+                      {(project.techStack || []).slice(0, 3).map((tag: string) => (
+                        <span key={tag} className="text-[10px] font-medium text-slate-500 bg-slate-100 px-2 py-1 rounded-md">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600 line-clamp-2">
+                    {project.description || project.challenge}
+                  </p>
+                </div>
+              </Link>
             ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-4 text-base font-bold text-slate-900 shadow-sm transition-all hover:border-orange-200 hover:bg-orange-50 active:scale-95"
+            >
+              View All Projects <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

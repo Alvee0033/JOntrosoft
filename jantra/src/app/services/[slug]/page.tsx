@@ -6,16 +6,16 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     const { slug } = await params;
     // A robust mapping of slugs to specific content for the 10 services.
     const serviceDataMap: Record<string, { title: string, category: string, lottie: string, description: string, descBg: string }> = {
-        "custom-software-development": { title: "Custom Software Development", category: "Core Service", lottie: "/lottie/cloud.json", description: "End-to-end bespoke software solutions built for scale and performance. We engineer systems that fit your exact business logic rather than forcing you to conform to off-the-shelf products.", descBg: "bg-orange-100" },
-        "mobile-app-development": { title: "Mobile App Development", category: "Core Service", lottie: "/lottie/app-development.json", description: "High-performance native and cross-platform mobile applications that users love. We build seamless experiences for iOS and Android.", descBg: "bg-slate-200" },
-        "ai-agent-development": { title: "AI Agent Development", category: "Core Service", lottie: "/lottie/assistant-bot.json", description: "Deploy autonomous AI agents that think, act, and execute complex business tasks 24/7. Transform operational efficiency with independent agents.", descBg: "bg-orange-100" },
-        "ai-chatbots-virtual-assistants": { title: "AI Chatbots & Virtual Assistants", category: "Core Service", lottie: "/lottie/live-chatbot.json", description: "Intelligent conversational interfaces that support customers and drive sales. Human-level interaction to scale your support indefinitely.", descBg: "bg-slate-200" },
-        "agentic-workflow-automation": { title: "Agentic Workflow Automation", category: "Core Service", lottie: "/lottie/automatic.json", description: "Eliminate manual operational bottlenecks with intelligent, end-to-end automated workflows that adapt to unexpected changes.", descBg: "bg-orange-100" },
-        "saas-product-development": { title: "SaaS Product Development", category: "Core Service", lottie: "/lottie/saas.json", description: "From architecture to deployment, we build scalable Software-as-a-Service platforms designed for massive parallel tenant usage.", descBg: "bg-slate-200" },
-        "api-microservices-development": { title: "API & Microservices Development", category: "Core Service", lottie: "/lottie/3d-web.json", description: "Robust backend systems and APIs to connect and power your digital ecosystem, built with high availability in mind.", descBg: "bg-orange-100" },
-        "business-intelligence-dashboards": { title: "Business Intelligence Dashboards", category: "Core Service", lottie: "/lottie/bpo-3d.json", description: "Actionable insights through beautiful, real-time data visualization platforms. Turn raw data sets into executive-ready dashboards.", descBg: "bg-slate-200" },
+        "custom-software": { title: "Custom Software Development", category: "Core Service", lottie: "/lottie/software-development-green.json", description: "End-to-end bespoke software solutions built for scale and performance. We engineer systems that fit your exact business logic rather than forcing you to conform to off-the-shelf products.", descBg: "bg-orange-100" },
+        "mobile-app": { title: "Mobile App Development", category: "Core Service", lottie: "/lottie/app-development.json", description: "High-performance native and cross-platform mobile applications that users love. We build seamless experiences for iOS and Android.", descBg: "bg-slate-200" },
+        "ai-agent": { title: "AI Agent Development", category: "Core Service", lottie: "/lottie/assistant-bot.json", description: "Deploy autonomous AI agents that think, act, and execute complex business tasks 24/7. Transform operational efficiency with independent agents.", descBg: "bg-orange-100" },
+        "ai-chatbot": { title: "AI Chatbots & Virtual Assistants", category: "Core Service", lottie: "/lottie/live-chatbot.json", description: "Intelligent conversational interfaces that support customers and drive sales. Human-level interaction to scale your support indefinitely.", descBg: "bg-slate-200" },
+        "workflow-automation": { title: "Agentic Workflow Automation", category: "Core Service", lottie: "/lottie/automatic.json", description: "Eliminate manual operational bottlenecks with intelligent, end-to-end automated workflows that adapt to unexpected changes.", descBg: "bg-orange-100" },
+        "saas": { title: "SaaS Product Development", category: "Core Service", lottie: "/lottie/saas.json", description: "From architecture to deployment, we build scalable Software-as-a-Service platforms designed for massive parallel tenant usage.", descBg: "bg-slate-200" },
+        "api-microservices": { title: "API & Microservices Development", category: "Core Service", lottie: "/lottie/3d-web.json", description: "Robust backend systems and APIs to connect and power your digital ecosystem, built with high availability in mind.", descBg: "bg-orange-100" },
+        "business-intelligence": { title: "Business Intelligence Dashboards", category: "Core Service", lottie: "/lottie/bpo-3d.json", description: "Actionable insights through beautiful, real-time data visualization platforms. Turn raw data sets into executive-ready dashboards.", descBg: "bg-slate-200" },
         "ui-ux-design": { title: "UI/UX & Product Design", category: "Core Service", lottie: "/lottie/uxui-d.json", description: "User-centric design that creates intuitive and engaging digital experiences, deeply rooted in human psychology and research.", descBg: "bg-orange-100" },
-        "cloud-migration-management": { title: "Cloud Migration & Management", category: "Core Service", lottie: "/lottie/cloud-animation.json", description: "Secure, efficient transition to cloud infrastructure with ongoing optimization, reducing your cloud spend while boosting availability.", descBg: "bg-slate-200" },
+        "cloud-migration": { title: "Cloud Migration & Management", category: "Core Service", lottie: "/lottie/cloud-animation.json", description: "Secure, efficient transition to cloud infrastructure with ongoing optimization, reducing your cloud spend while boosting availability.", descBg: "bg-slate-200" },
     };
 
     const service = serviceDataMap[slug] || {
@@ -143,9 +143,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-lg md:max-w-none mx-auto">
                         {[
-                            { name: "Starter", price: "10K - 20K BDT", desc: "For straightforward MVPs and core foundational setups." },
-                            { name: "Growth", price: "20K - 30K BDT", desc: "For scaling platforms requiring complex integrations.", highlighted: true },
-                            { name: "Enterprise", price: "30K - 50K BDT", desc: "Mission-critical architectures with SLAs and dedicated teams." }
+                            { name: "Starter", price: "$5,000 USD", desc: "For straightforward MVPs and core foundational setups." },
+                            { name: "Growth", price: "$15,000 USD", desc: "For scaling platforms requiring complex integrations.", highlighted: true },
+                            { name: "Enterprise", price: "$30,000 USD", desc: "Mission-critical architectures with SLAs and dedicated teams." }
                         ].map((tier, i) => (
                             <div key={i} className={`p-8 rounded-[2rem] border ${tier.highlighted ? "bg-slate-900 text-white border-slate-800 shadow-xl transform md:-translate-y-2" : "bg-white border-slate-200 text-slate-900 shadow-sm"}`}>
                                 <h3 className={`text-xl font-bold mb-2 ${tier.highlighted ? "text-white" : "text-slate-900"}`}>{tier.name}</h3>
@@ -161,9 +161,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
                 {/* 8. Case Study Teaser */}
                 <section className="mb-24 bg-orange-50 border border-orange-100 rounded-[3rem] p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center gap-10">
-                    <div className="w-full md:w-1/3 aspect-square bg-orange-500 rounded-[2.5rem] flex items-center justify-center text-7xl font-black text-white/20 relative overflow-hidden shadow-xl">
-                        <div className="absolute inset-0 bg-[url('/img/placeholder-abstract.jpg')] opacity-20 bg-cover bg-center mix-blend-overlay"></div>
-                        C
+                    <div className="w-full md:w-1/3 aspect-square rounded-[2.5rem] relative overflow-hidden shadow-xl">
+                        <div className="w-full h-full bg-gradient-to-br from-orange-400 via-orange-500 to-red-600 flex items-center justify-center">
+                            <span className="text-white font-black opacity-20 select-none" style={{ fontSize: '8rem', lineHeight: 1 }}>
+                                L
+                            </span>
+                        </div>
                     </div>
                     <div className="w-full md:w-2/3 text-center md:text-left">
                         <span className="text-orange-600 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-3 block">Featured Case Study</span>
